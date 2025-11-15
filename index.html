@@ -48,6 +48,11 @@
   </style>
 </head>
 <body>
+  <nav style="background:#0d6efd;padding:15px;text-align:center;">
+    <a href="index.html" style="color:white;margin:0 15px;text-decoration:none;font-weight:bold;">Beranda</a>
+    <a href="kalkulator.html" style="color:white;margin:0 15px;text-decoration:none;font-weight:bold;">Kalkulator Lele</a>
+    <a href="kontak.html" style="color:white;margin:0 15px;text-decoration:none;font-weight:bold;">Kontak</a>
+  </nav>
   <header>
     <h1>Belajar Budidaya Lele</h1>
     <p>Panduan lengkap untuk pemula hingga mahir dalam budidaya lele rumahan maupun skala bisnis.</p>
@@ -81,7 +86,12 @@
     <p>Sistem rotasi panen, bisnis lele bumbu, dan optimasi produksi untuk profit maksimal.</p>
   </section>  <footer>
     &copy; 2025 Belajar Budidaya Lele · Dibuat oleh sandikodev
-  </footer><!-- Tambahan Section Lebih Lengkap --><section>
+  </footer>
+<script>
+// Smooth scroll
+const links=document.querySelectorAll('a[href^="#"]');
+links.forEach(link=>{link.addEventListener('click',function(e){e.preventDefault();document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});});});
+</script><!-- Tambahan Section Lebih Lengkap --><section>
   <h2>Jenis-Jenis Lele untuk Budidaya</h2>
   <ul>
     <li><strong>Lele Sangkuriang</strong> — cepat besar, kuat, cocok pemula.</li>
