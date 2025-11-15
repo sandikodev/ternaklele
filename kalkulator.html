@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Budidaya Lele</title>
+  <style>
+    body {font-family: Arial, sans-serif; background:#f5f5f5; margin:0; padding:0;}
+    header {background:#0d6efd; padding:20px; color:white; text-align:center;}
+    section {background:white; max-width:700px; margin:25px auto; padding:25px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);} 
+    label {display:block; margin-top:15px; font-weight:bold;}
+    input {width:100%; padding:10px; margin-top:5px; border-radius:8px; border:1px solid #ccc;}
+    button {margin-top:20px; width:100%; padding:12px; background:#0d6efd; border:none; color:white; border-radius:8px; font-size:16px; cursor:pointer;}
+    button:hover {opacity:0.9;}
+    #hasil {margin-top:20px; padding:15px; background:#e9f5ff; border-radius:8px;}
+    nav {background:#0d6efd;padding:15px;text-align:center;}
+    nav a {color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="kalkulator.html">Kalkulator Lele</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>  <header>
+    <h1>Kalkulator Budidaya Lele</h1>
+    <p>Hitung jumlah ideal tebar lele & estimasi kebutuhan pakan.</p>
+  </header>  <section>
+    <h2>Hitung Tebar Ikan</h2><label>Ukuran Kolam (panjang x lebar x tinggi) dalam meter</label>
+<input type="number" id="panjang" placeholder="Panjang (m)">
+<input type="number" id="lebar" placeholder="Lebar (m)">
+<input type="number" id="tinggi" placeholder="Tinggi air (m)">
+
+<label>Kepadatan Ideal (ekor/m²)</label>
+<input type="number" id="kepadatan" value="100">
+
+<button onclick="hitung()">Hitung Tebar</button>
+
+<div id="hasil"></div>
+
+  </section><script>
+function hitung() {
+  const p = parseFloat(document.getElementById('panjang').value);
+  const l = parseFloat(document.getElementById('lebar').value);
+  const k = parseFloat(document.getElementById('kepadatan').value);
+
+  if (!p || !l || !k) {
+    document.getElementById('hasil').innerHTML = 'Mohon isi semua data dengan benar.';
+    return;
+  }
+
+  const luas = p * l;
+  const tebar = Math.round(luas * k);
+
+  document.getElementById('hasil').innerHTML = `
+    <h3>Hasil Perhitungan</h3>
+    <p><strong>Luas Kolam:</strong> ${luas.toFixed(2)} m²</p>
+    <p><strong>Maksimal Tebar Ideal:</strong> ${tebar} ekor</p>
+    <p><small>*Tinggi air tidak mempengaruhi luas, hanya kualitas hidup ikan.</small></p>
+  `;
+}
+</script></body>
+</html>
